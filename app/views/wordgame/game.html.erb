@@ -1,0 +1,41 @@
+<h1>Wordgame#game</h1>
+<p>Find me in app/views/wordgame/game.html.erb</p>
+
+<h2>How many letters?</h2>
+<form action="/game" method="get" >
+  <label for="question">How many letters</label>
+  <input type="number" id="question" name="number" placeholder="how many letters?">
+  <input type="submit" value="Go on!">
+</form>
+
+<% unless @grid.empty? %>
+  <h2>Here are the letters</h2>
+  <p><%= @grid %></p>
+<% end %>
+
+<% unless @grid.empty? %>
+  <h2>Your proposition?</h2>
+  <form action="/score" method="get" >
+    <label for="question">your proposition</label>
+    <input type="text" id="question" name="proposition" placeholder="your proposition">
+    <input type="hidden" id="gridprop" name="gridhidden" value="<%= @grid.join("") %>" >
+    <input type="hidden" name="start" value="<%= Time.now %>" >
+    <input type="submit" value="Go on!">
+  </form>
+<% end %>
+
+
+
+
+
+
+
+
+
+
+
+ <!--  <form action="/answer" method="get" >
+    <label for="question">Speak to your coach</label>
+    <input type="text" id="question" name="query" placeholder="what time is it?">
+    <input type="submit" value="Go on!">
+  </form> -->
